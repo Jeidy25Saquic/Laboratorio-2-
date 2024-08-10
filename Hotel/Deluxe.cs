@@ -30,7 +30,7 @@ namespace Hotel
         public void SolicitarInformacion()
         {
             base.SolicitarInformacion();
-            bool desayunio= true, spa=true,desayuno=true;
+            bool spa=true,desayuno=true;
             string id = "deluxe";
             Console.Write(" Cuenta con desayuno al mar [si] [no]: ");
             string tiene = Console.ReadLine().ToLower();
