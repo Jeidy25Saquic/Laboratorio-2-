@@ -6,49 +6,47 @@ using System.Threading.Tasks;
 
 namespace Hotel
 {
-    internal class HabitacionSimple:Habitacion
+    public class HabitacionSimple : Habitacion
     {
-
-        public List<int> NumeroCamas { get; set; } = new List<int>();
-
+        public HabitacionSimple(int numero, double precio, bool disponible, string nombres, string id) : base(numero, precio, disponible, nombres, id)
+        {
+        }
 
         public HabitacionSimple()
         {
+        }
+
+        public int NumeroCamas { get; set; }
+
+
+        public void AgregarHabitacion(string id, int numeroCamas)
+        {
+           Id = id;
+          NumeroCamas = numeroCamas;
+            
+          
+        }
+
+        public  void SolicitarInformacion()
+        {
+            base.SolicitarInformacion();
+            Console.Write("Número de Camas: ");
+            int numeroCamas = Convert.ToInt32(Console.ReadLine());
+            string id = "simple";
+            AgregarHabitacion (id, numeroCamas);
            
         }
-       
 
-        public void AgregarHabitacion(string id, int numeroHabitacion, double precio,int numeroCamas, bool disponible, string nombre)
-        {
-            Id.Add(id);
-            Numero.Add(numeroHabitacion);
-            Precio.Add(precio);
-            NumeroCamas.Add(numeroCamas);
-            Disponible.Add(disponible);
-            Nombres.Add(nombre);
+        public void MostrarInformacion() { 
+
+            base.MostrarInformacion();
+            Console.WriteLine($"Numero de Camas {NumeroCamas} - Tipo de Habitacion: {Id}");
+
         }
-        public void SolicitarInformacion()
-        {
-
-            Console.WriteLine("Numero de Habitacion");
-            int numeroHabitacion = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Numero Precios");
-            double precio = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Numero de Cama");
-            int numeroCamas = Convert.ToInt32(Console.ReadLine());
-            string nombreCliente = "N/A";
-            string Id = "simple";
-            bool disponible = true;
-            AgregarHabitacion(Id, numeroHabitacion, precio, numeroCamas, disponible, nombreCliente);
-            }
-
-
        
 
 
     }
-
-
-    }
+}
 
 
